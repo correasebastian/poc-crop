@@ -1,0 +1,2 @@
+in this the height is set to 100% 
+so bed and coffe table are align to the center which is not desired
