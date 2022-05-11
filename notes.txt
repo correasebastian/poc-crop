@@ -4,3 +4,6 @@ so bed and coffe table are align to the center which is not desired
 
 object-position: bottom; fix the above for all the horizontal images
 meaning width > height
+
+----
+for vertical elements we will need the offset if need it

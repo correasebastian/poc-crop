@@ -12,6 +12,7 @@ const type = {
       // src: "http://placehold.jp/46bbd2/ffffff/560x718.png?text=SIDE%20%0ATABLE%0A",
       src: "https://res.cloudinary.com/dcgdzm4ai/image/upload/v1652209615/rhr/crop/ThaddeusGlassRoundSideTable_GlassForgedBrass_prod14920046_E510818999_F_RS_outddh.png",
       aspectRatio: (1525/1937),
+      offset: 25
       
     },
     coffee: {
@@ -38,6 +39,11 @@ const type = {
     }
   };
 
+  const {src , offset} = type[new URLSearchParams(location.search).get("t")]
+
   Array.from(document.querySelectorAll("img")).forEach(ele =>{
-      ele.setAttribute("src", type[new URLSearchParams(location.search).get("t")].src)
+      ele.setAttribute("src", src)
+      if(offset >= 0){
+        ele.style.height = (100- offset) +"%"
+      }
   })
