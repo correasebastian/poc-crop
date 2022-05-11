@@ -25,6 +25,11 @@
       object-fit: contain;
       max-height: -webkit-fill-available;
       align-self: flex-end;
+
+      /* 
+      because height is set to 100% looks on the center but some scenarios we wanted align bottom, most of them
+       */
+      object-position: bottom;
     }
   }
 }
