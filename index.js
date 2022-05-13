@@ -1,7 +1,7 @@
 let helpOn = false;
 const type = {
   sofa: {
-    src: "http://placehold.jp/3d4070/ffffff/982x278.png?text=Sofa",
+    src: "https://res.cloudinary.com/dcgdzm4ai/image/upload/v1652477150/rhr/crop/3/MaxwellOriginalArm_Sofa_Fabric_TwoToneLinenDove_OakBrown_prod20250031_E114406377_F_Frank_vg2nkg.png",
     aspectRatio: 2591 / 2349,
   },
   chair: {
