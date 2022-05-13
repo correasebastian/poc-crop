@@ -116,6 +116,7 @@ document.addEventListener("keyup", function (e) {
 
 const typeSelect = document.getElementById("type");
 const columnsSelect = document.getElementById("columns");
+const color = document.getElementById("color");
 
 Object.keys(type).forEach((key) => {
   const option = document.createElement("option");
@@ -130,6 +131,28 @@ typeSelect.addEventListener("change", ({ target: { value } }) => {
   
   setData(value);
 });
+
+function setColor(color){
+  Array.from(document.querySelectorAll("li")).forEach((ele) => {
+   
+      ele.style.backgroundColor = color;
+   
+  });
+}
+
+
+color.addEventListener("input", ({ target: { value } }) => {
+  
+  // console.log("🚀 ~ file: index.js ~ line 138 ~ input ~ color.addEventListener ~ value", value)
+  setColor(value)
+});
+color.addEventListener("change", ({ target: { value } }) => {
+  setColor(value)
+
+  
+  // console.log("🚀 ~ file: index.js ~ line 138 ~ change ~ color.addEventListener ~ value", value)
+});
+
 columnsSelect.addEventListener("change", ({ target: { value } }) => {
   
   setG(value);
