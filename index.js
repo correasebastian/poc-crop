@@ -48,14 +48,10 @@ const type = {
   },
 };
 
-const params = new URLSearchParams(location.search);
-
-const custom = params.get("q");
-const pOffset = params.get("offset");
-const g = params.get("g");
-const cOffset = Number(pOffset);
-
 function setG(g) {
+  const params = new URLSearchParams(location.search);
+
+  g = g ?? params.get("g");
   if (g) {
     const list = document.getElementById("list");
     const nG = Number(g);
@@ -80,6 +76,14 @@ function setG(g) {
 }
 
 function setData(key) {
+  const params = new URLSearchParams(location.search);
+  const custom = params.get("q");
+  const pOffset = params.get("offset");
+  const g = params.get("g");
+  const cOffset = Number(pOffset);
+
+  key = key ? key : params.get("t") ?? "sidetable";
+
   const { src, offset, pb, px } = type[key] ?? {};
 
   Array.from(document.querySelectorAll("img")).forEach((ele) => {
@@ -90,22 +94,29 @@ function setData(key) {
     }
     if (offset >= 0) {
       ele.style.height = 100 - offset + "%";
+    } else {
+      ele.style.height = "100%";
     }
     if (pOffset && cOffset >= 0) {
       ele.style.height = 100 - cOffset + "%";
+    } else if(!offset) {
+      ele.style.height = "100%";
     }
     if (pb) {
       ele.parentElement.style.paddingBottom = pb ? pb + "%" : "6%";
+    } else {
+      ele.parentElement.style.paddingBottom = "6%";
     }
     if (px) {
-      ele.parentElement.style.paddingLeft = px ? px + "%" : "3%";
-      ele.parentElement.style.paddingRight = px ? px + "%" : "3%";
+      ele.parentElement.style.paddingLeft = "3%";
+      ele.parentElement.style.paddingRight = "3%";
+    } else {
     }
   });
 }
-setG(g);
+setG();
 
-setData(params.get("t") || "sidetable");
+setData();
 
 const filterNode = document.getElementById("filters");
 document.addEventListener("keyup", function (e) {
@@ -124,36 +135,28 @@ Object.keys(type).forEach((key) => {
   option.value = key;
 
   typeSelect.appendChild(option);
-
 });
 
 typeSelect.addEventListener("change", ({ target: { value } }) => {
-  
   setData(value);
 });
 
-function setColor(color){
+function setColor(color) {
   Array.from(document.querySelectorAll("li")).forEach((ele) => {
-   
-      ele.style.backgroundColor = color;
-   
+    ele.style.backgroundColor = color;
   });
 }
 
-
 color.addEventListener("input", ({ target: { value } }) => {
-  
   // console.log("🚀 ~ file: index.js ~ line 138 ~ input ~ color.addEventListener ~ value", value)
-  setColor(value)
+  setColor(value);
 });
 color.addEventListener("change", ({ target: { value } }) => {
-  setColor(value)
+  setColor(value);
 
-  
   // console.log("🚀 ~ file: index.js ~ line 138 ~ change ~ color.addEventListener ~ value", value)
 });
 
 columnsSelect.addEventListener("change", ({ target: { value } }) => {
-  
   setG(value);
 });
