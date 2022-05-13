@@ -45,3 +45,10 @@
 .grid-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.hide{
+  display: none;
+}
+
+.filters{
+  margin: 3%;
+}
