@@ -87,11 +87,20 @@ function setData(key) {
   const { src, offset, pb, px } = type[key] ?? {};
 
   Array.from(document.querySelectorAll("img")).forEach((ele) => {
+
+    if(ele.dataset.js !== 'true'){
+      ele.onload =(x)=>{
+        console.log("🚀 ~ file: index.js ~ line 93 ~ Array.from ~ x", x.currentTarget.naturalHeight , x.currentTarget.naturalWidth)
+      }
+      ele.dataset.js="true"
+    }
     if (custom) {
       ele.setAttribute("src", `https://placehold.jp/${custom}.png`);
     } else {
       ele.setAttribute("src", src);
     }
+   
+
     if (offset >= 0) {
       ele.style.height = 100 - offset + "%";
     } else {
