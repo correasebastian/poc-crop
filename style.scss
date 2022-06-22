@@ -17,7 +17,8 @@
     aspect-ratio: 506/520;
     background-color: #F8F7F3;
     display: flex;
-    padding: 0 3% 6% 3%;
+    // padding: 0 3% 6% 3%;
+    padding: 0;
 
     img {
       // width: 100%;
@@ -26,13 +27,15 @@
       height: 100%;
       object-fit: contain;
       max-height: -webkit-fill-available;
-      align-self: flex-end;
+      // align-self: flex-end;
+      align-self: center;
       // background-color:antiquewhite;
 
       /* 
       because height is set to 100% looks on the center but some scenarios we wanted align bottom, most of them
        */
-      object-position: bottom;
+      // object-position: bottom;
+      object-position: center;
     }
   }
 }
@@ -51,4 +54,37 @@
 
 .filters{
   margin: 3%;
+}
+
+.grid li img.v {
+  width: 100%;
+  height: 90%;
+  object-fit: contain;
+  max-height: -webkit-fill-available;
+  align-self: flex-end;
+  object-position: center;
+  padding-bottom: 4%;
+}
+
+
+.grid li img.s {
+  width: 88%;
+  height: 82%;
+  object-fit: contain;
+  max-height: -webkit-fill-available;
+  object-position: bottom;
+  align-self: flex-end;
+  margin: 0 auto;
+  padding: 0 6% 6% 6%;
+}
+
+.grid li img.h {
+  width: 93%;
+  height: 100%;
+  object-fit: contain;
+  max-height: -webkit-fill-available;
+  object-position: 0% 68%;
+  align-self: center;
+  margin: 0 auto;
+  padding: 0
 }
