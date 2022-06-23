@@ -88,3 +88,14 @@
   margin: 0 auto;
   padding: 0
 }
+
+/* legacy, square */
+.grid li img.l {
+width: 97%;
+height: 100%;
+object-fit: contain;
+max-height: -webkit-fill-available;
+object-position: center;
+align-self: center;
+margin: 0 auto;
+}
